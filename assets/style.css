@@ -1512,8 +1512,18 @@ h3 {
 
     /* Penyesuaian tinggi kotak visual produk di HP agar tidak terlalu panjang */
     .product-visual {
-        max-height: 160px;
-        height: 160px;
+    width: 100%;
+    height: auto;
+    max-height: none;
+    min-height: 0;
+    aspect-ratio: auto;
+    }
+
+    .product-visual img {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
     }
 
     .product-info {
@@ -1552,10 +1562,6 @@ h3 {
 @media (max-width: 390px) {
     .product-grid {
         grid-template-columns: 1fr;
-    }
-
-    .product-visual {
-        height: 160px;
     }
 
     .product-info p {
