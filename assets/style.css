@@ -870,7 +870,7 @@ h3 {
     position: relative;
     z-index: 2;
 }
-}
+
 
 .product-visual:before {
     content: "";
@@ -890,14 +890,7 @@ h3 {
     border: 1px dashed rgba(111,66,37,.28);
 }
 
-.product-visual img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: center;
-    position: relative;
-    z-index: 2;
-}
+
 
 .visual-cassava {
     background: #efe0be;
