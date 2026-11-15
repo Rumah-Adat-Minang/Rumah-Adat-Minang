@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Lokasi dan kontak Rumah Adat Minang.">
     <title>Lokasi & Kontak | Rumah Adat Minang</title>
-    <link rel="stylesheet" href="assets/style.css">
-    <script src="assets/script.js" defer></script>
+    <link rel="stylesheet" href="assets/css/style.css"><link rel="stylesheet" href="assets/css/tambahan.css">
+    <script src="assets/js/config.js"></script><script src="assets/js/script.js" defer></script><script src="assets/js/site.js" defer></script>
 </head>
 <body>
     <div class="topbar">
@@ -20,7 +20,7 @@
         <div class="container nav-wrap">
             <a class="brand" href="index.html">
                 <span class="brand-mark">
-                    <img src="assets/Logo.jpeg" alt="Logo Minang" style="width: auto; height: 40px; object-fit: contain;">
+                    <img src="assets/img/Logo.jpeg" alt="Logo Minang">
                 </span>
                 <span><strong>Rumah Adat Minang</strong><small>Pusat Oleh-Oleh Keripik</small></span>
             </a>
@@ -59,44 +59,46 @@
                         <span class="contact-icon">⌖</span>
                         <div>
                             <strong>Alamat</strong>
-                            <p>Jl. Pelajar Timur, Gg. Kelapa No. 19, Medan Denai, Medan, Sumatera Utara</p>
+                            <p data-site="alamat">Jl. Pelajar Timur, Gg. Kelapa No. 19, Medan Denai, Medan, Sumatera Utara</p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <span class="contact-icon">◷</span>
                         <div>
                             <strong>Jam operasional</strong>
-                            <p>Setiap hari: 08.00 - 21.00</p>
+                            <p data-site="jam">Setiap hari: 08.00 - 21.00</p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <span class="contact-icon">✆</span>
                         <div>
                             <strong>WhatsApp / Telepon</strong><br>
-							<a href="https://wa.me/6282260438462" target="_blank">
+							<a href="https://wa.me/6282260438462" target="_blank" rel="noopener noreferrer" data-site="wa">
 								082260438462
 							</a>
                         </div>
                     </div>
                 </div>
 
-                <a class="btn btn-primary" href="https://maps.app.goo.gl/bX4TtvKjfpiEVkaSA" target="_blank" rel="noopener noreferrer">Buka Google Maps ↗</a>
+                <a class="btn btn-primary" data-site="maps" href="https://maps.app.goo.gl/bX4TtvKjfpiEVkaSA" target="_blank" rel="noopener noreferrer">Buka Google Maps ↗</a>
             </div>
 
 	            <div class="map-card">
-	                <div class="map-illustration">
-	                    <div class="map-road road-one"></div>
-	                    <div class="map-road road-two"></div>
-	                    <div class="map-road road-three"></div>
-	                    <div class="map-pin">⌖</div>
-	                    <div class="map-label">
-	                        <strong>Rumah Adat Minang</strong>
-	                        <span>Titik lokasi perlu diperiksa</span>
-	                    </div>
-	                </div>
-	                <div class="map-card-foot">
-	                    <span><strong>Petunjuk lokasi</strong><small>Buka tautan peta untuk melihat titik dari sumber mitra.</small></span>
-                    <a href="https://maps.app.goo.gl/bX4TtvKjfpiEVkaSA" target="_blank" rel="noopener noreferrer" aria-label="Buka peta">↗</a>
+                    <div style="width: 100%; height: 330px; overflow: hidden;">
+                        <iframe 
+                            src="https://maps.google.com/maps?q=Jl.+Pelajar+Timur,+Gg.+Kelapa+No.+19,+Medan+Denai,+Medan,+Sumatera+Utara&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+                            width="100%" 
+                            height="330" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                    <div class="map-card-foot">
+                        <span><strong>Petunjuk lokasi</strong><small>Klik ikon panah untuk membuka peta interaktif penuh.</small></span>
+                        <a data-site="maps" href="https://maps.app.goo.gl/bX4TtvKjfpiEVkaSA" target="_blank" rel="noopener noreferrer" aria-label="Buka peta">↗</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -106,19 +108,19 @@
                 <div>
                     <span class="eyebrow">Hubungi kami</span>
                     <h2>Ada pertanyaan?</h2>
-                    <p>Formulir ini adalah contoh antarmuka. Saat ini belum mengirim data ke email atau server.</p>
+                    <p>Tulis pertanyaan Anda, lalu pesan akan dibuka langsung di WhatsApp toko.</p>
                 </div>
                 <form id="contact-form" class="contact-form">
                     <label for="name">Nama</label>
-                    <input id="name" name="name" required placeholder="Nama kamu">
+                    <input id="name" name="name" required maxlength="80" placeholder="Nama kamu">
                     
                     <label for="email">Email (opsional)</label>
                     <input id="email" name="email" type="email" placeholder="nama@email.com">
                     
                     <label for="message">Pesan</label>
-                    <textarea id="message" name="message" required rows="4" placeholder="Tulis pertanyaan kamu..."></textarea>
+                    <textarea id="message" name="message" required maxlength="1000" rows="4" placeholder="Tulis pertanyaan kamu..."></textarea>
                     
-                    <button class="btn btn-primary" type="submit">Periksa formulir <span>↗</span></button>
+                    <button class="btn btn-primary" type="submit">Kirim lewat WhatsApp <span>↗</span></button>
                     <p class="form-feedback" id="form-feedback" aria-live="polite"></p>
                 </form>
             </div>
@@ -129,7 +131,7 @@
         <div class="container footer-main">
             <a class="brand brand-light" href="index.html">
                 <span class="brand-mark">
-                    <img src="assets/Logo.jpeg" alt="Logo Minang" style="width: auto; height: 40px; object-fit: contain;">
+                    <img src="assets/img/Logo.jpeg" alt="Logo Minang">
 				</span>
                 <span><strong>Rumah Adat Minang</strong><small>Pusat Oleh-Oleh Keripik</small></span>
             </a>

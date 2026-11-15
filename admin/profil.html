@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="id" class="guarded">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Profil Toko | Admin Rumah Adat Minang</title>
+  <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body>
+<main id="content" class="content">
+  <div class="page-head"><div><h1>Profil Toko</h1><p class="lead">Informasi toko yang tampil di halaman Lokasi, kontak, dan footer.</p></div></div>
+  <form id="form" novalidate>
+    <section class="panel"><h2>Identitas</h2>
+      <div class="field"><label for="f-nama_toko">Nama toko</label><input id="f-nama_toko" type="text" maxlength="120"><p class="err" id="e-nama_toko"></p></div><div class="field"><label for="f-tagline">Tagline</label><input id="f-tagline" type="text" maxlength="200"><p class="err" id="e-tagline"></p></div><div class="field"><label for="f-deskripsi">Deskripsi singkat</label><textarea id="f-deskripsi" rows="4" maxlength="1000"></textarea><p class="err" id="e-deskripsi"></p></div>
+      <label>Logo</label><div id="logo-picker"></div>
+    </section>
+    <section class="panel"><h2>Lokasi dan jam buka</h2>
+      <div class="field"><label for="f-alamat">Alamat</label><textarea id="f-alamat" rows="2" maxlength="300"></textarea><p class="err" id="e-alamat"></p></div><div class="field"><label for="f-jam_operasional">Jam operasional</label><input id="f-jam_operasional" type="text" maxlength="120" placeholder="Setiap hari: 08.00 - 21.00"><p class="err" id="e-jam_operasional"></p></div><div class="field"><label for="f-maps_url">Tautan Google Maps</label><input id="f-maps_url" type="url" placeholder="https://maps.app.goo.gl/..."><p class="hint">Harus diawali https://</p><p class="err" id="e-maps_url"></p></div>
+    </section>
+    <section class="panel"><h2>Kontak</h2>
+      <div class="grid2"><div class="field"><label for="f-whatsapp">Nomor WhatsApp</label><input id="f-whatsapp" type="tel"><p class="hint">Boleh ditulis 0822xxxxxxx atau 62822xxxxxxx. Disimpan sebagai 62...</p><p class="err" id="e-whatsapp"></p></div><div class="field"><label for="f-telepon">Telepon</label><input id="f-telepon" type="tel" maxlength="30"><p class="err" id="e-telepon"></p></div></div>
+      <div class="field"><label for="f-email">Email</label><input id="f-email" type="text" maxlength="120"><p class="err" id="e-email"></p></div>
+    </section>
+    <section class="panel"><h2>Media sosial (opsional)</h2>
+      <div class="field"><label for="f-instagram_url">Instagram</label><input id="f-instagram_url" type="url" placeholder="https://instagram.com/..."><p class="err" id="e-instagram_url"></p></div><div class="field"><label for="f-facebook_url">Facebook</label><input id="f-facebook_url" type="url" placeholder="https://facebook.com/..."><p class="err" id="e-facebook_url"></p></div><div class="field"><label for="f-tiktok_url">TikTok</label><input id="f-tiktok_url" type="url" placeholder="https://tiktok.com/@..."><p class="err" id="e-tiktok_url"></p></div>
+    </section>
+    <div class="form-actions"><button class="btn btn-primary btn-inline" id="btn-save" type="submit">Simpan profil</button></div>
+    <div class="msg" id="form-msg" role="alert"></div>
+  </form>
+</main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+  <script src="../assets/js/config.js"></script>
+  <script src="../assets/js/supabase-client.js"></script>
+  <script src="../assets/js/admin-ui.js"></script>
+  <script src="../assets/js/admin-auth.js"></script>
+  <script src="../assets/js/admin-logic.js"></script>
+  <script src="../assets/js/admin-storage.js"></script>
+  <script src="../assets/js/admin-layout.js"></script>
+  <script src="../assets/js/pages/profil.js"></script>
+</body>
+</html>

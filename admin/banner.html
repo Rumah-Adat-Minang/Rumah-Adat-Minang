@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id" class="guarded">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Banner Promosi | Admin Rumah Adat Minang</title>
+  <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body>
+<main id="content" class="content">
+  <div class="page-head"><div><h1>Banner Promosi</h1><p class="lead">Banner tampil di halaman pengunjung sesuai urutan.</p></div><button class="btn btn-primary btn-inline" id="btn-add" type="button">+ Tambah banner</button></div>
+  <section class="panel" id="form-panel" hidden>
+    <h2 id="form-title">Tambah banner</h2>
+    <form id="form" novalidate>
+      <div class="field"><label for="f-judul">Judul banner</label><input id="f-judul" type="text" maxlength="120"><p class="err" id="e-judul"></p></div><div class="field"><label for="f-subjudul">Subjudul (opsional)</label><textarea id="f-subjudul" rows="2" maxlength="300"></textarea><p class="err" id="e-subjudul"></p></div><div class="field"><label for="f-tautan">Tautan saat banner diklik (opsional)</label><input id="f-tautan" type="text" maxlength="300"><p class="hint">Contoh: produk.html atau https://wa.me/62822xxxxxxx</p><p class="err" id="e-tautan"></p></div>
+      <div class="grid2"><div class="field"><label for="f-urutan">Urutan tampil</label><input id="f-urutan" type="number"><p class="hint">Angka kecil tampil lebih dulu.</p><p class="err" id="e-urutan"></p></div>
+        <div class="field"><label class="check"><input id="f-aktif" type="checkbox" checked> Tampilkan di website</label></div></div>
+      <label>Gambar banner</label>
+      <p class="hint">Disarankan gambar lebar (landscape), misalnya 1600 x 533 piksel. Bagian tepi bisa terpotong agar banner selalu rapi.</p>
+      <div id="picker"></div>
+      <p class="err" id="e-gambar"></p>
+      <div class="form-actions"><button class="btn btn-primary btn-inline" id="btn-save" type="submit">Simpan</button><button class="btn btn-ghost" id="btn-cancel" type="button">Batal</button></div>
+      <div class="msg" id="form-msg" role="alert"></div>
+    </form>
+  </section>
+  <section class="panel">
+    <div class="table-wrap"><table class="table">
+      <thead><tr><th>Gambar</th><th>Banner</th><th>Tautan</th><th>Urutan</th><th>Status</th><th>Aksi</th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table></div>
+    <p class="empty" id="empty"></p>
+  </section>
+</main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+  <script src="../assets/js/config.js"></script>
+  <script src="../assets/js/supabase-client.js"></script>
+  <script src="../assets/js/admin-ui.js"></script>
+  <script src="../assets/js/admin-auth.js"></script>
+  <script src="../assets/js/admin-logic.js"></script>
+  <script src="../assets/js/admin-storage.js"></script>
+  <script src="../assets/js/admin-layout.js"></script>
+  <script src="../assets/js/pages/banner.js"></script>
+</body>
+</html>

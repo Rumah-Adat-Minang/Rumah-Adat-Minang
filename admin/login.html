@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Masuk Admin | Admin Rumah Adat Minang</title>
+  <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body>
+  <main class="auth-wrap">
+    <section class="auth-card">
+      <a href="../index.html" class="btn-back-icon" title="Kembali ke Beranda">↩</a>
+      <img class="auth-logo" src="../assets/img/Logo.jpeg" alt="Logo Rumah Adat Minang">
+      <h1>Masuk Admin</h1>
+      <p class="sub">Khusus pengelola Rumah Adat Minang</p>
+      <form id="login-form" novalidate>
+        <label for="email">Email</label>
+        <input id="email" type="email" autocomplete="username" required>
+        <label for="password">Password</label>
+        <div class="pw-row">
+          <input id="password" type="password" autocomplete="current-password" required>
+          <button type="button" class="pw-toggle" id="pw-toggle" aria-label="Tampilkan atau sembunyikan password">Lihat</button>
+        </div>
+        <button class="btn btn-primary" id="submit" type="submit">Masuk</button>
+        <div id="msg" class="msg" role="alert"></div>
+      </form>
+      <div class="links"><a href="lupa-password.html">Lupa password?</a></div>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+  <script src="../assets/js/config.js"></script>
+  <script src="../assets/js/supabase-client.js"></script>
+  <script src="../assets/js/admin-ui.js"></script>
+  <script src="../assets/js/admin-auth.js"></script>
+  <script>
+    const msg = document.getElementById("msg");
+    const reasons = {
+      keluar: ["Anda sudah keluar.", "ok"],
+      masuk: ["Silakan masuk terlebih dahulu.", "info"],
+      "bukan-admin": ["Akun ini tidak terdaftar sebagai admin.", "bad"],
+      koneksi: ["Koneksi database belum siap. Periksa assets/js/config.js.", "bad"],
+      "password-diubah": ["Password berhasil diubah. Silakan masuk dengan password baru.", "ok"]
+    };
+    const r = reasons[new URLSearchParams(location.search).get("alasan")];
+    if (r) AdminUI.formMessage(msg, r[0], r[1]);
+
+    AdminAuth.redirectIfLoggedIn();
+
+    document.getElementById("pw-toggle").addEventListener("click", function () {
+      const f = document.getElementById("password");
+      const show = f.type === "password";
+      f.type = show ? "text" : "password";
+      this.textContent = show ? "Sembunyi" : "Lihat";
+    });
+
+    document.getElementById("login-form").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const btn = document.getElementById("submit");
+      AdminUI.formMessage(msg, "");
+      AdminUI.setBusy(btn, true, "Memeriksa...");
+      const res = await AdminAuth.login(document.getElementById("email").value, document.getElementById("password").value);
+      if (res.ok) { window.location.replace("index.html"); return; }
+      AdminUI.setBusy(btn, false);
+      AdminUI.formMessage(msg, res.message, "bad");
+      document.getElementById("password").value = "";
+    });
+  </script>
+</body>
+</html>

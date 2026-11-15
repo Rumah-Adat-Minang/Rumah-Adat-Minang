@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id" class="guarded">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Gambar Beranda | Admin Rumah Adat Minang</title>
+  <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body>
+<main id="content" class="content">
+  <div class="page-head"><div><h1>Gambar Beranda</h1><p class="lead">Atur gambar yang tampil di halaman depan website. Jika dikosongkan, halaman memakai gambar bawaan.</p></div></div><section class="panel"><h2>Gambar utama</h2><p class="lead" style="margin:0 0 12px">Kotak besar di bagian atas halaman depan (di samping judul).</p>
+      <p class="hint" id="hero-status"></p>
+      <div id="hero-picker"></div>
+      <p class="hint">Bingkai mengikuti bentuk gambar. Logo persegi, foto landscape, maupun potret akan tampil utuh tanpa terpotong.</p>
+      <div class="field" style="max-width:520px"><label for="f-hero_alt">Teks pengganti gambar (untuk pembaca layar, opsional)</label><input id="f-hero_alt" type="text" maxlength="160"><p class="err" id="e-hero_alt"></p></div>
+      <div class="form-actions"><button class="btn btn-primary btn-inline" id="hero-save" type="button">Simpan gambar</button><button class="btn btn-ghost" id="hero-reset" type="button">Kembalikan ke gambar bawaan</button></div>
+      <div class="msg" id="hero-msg" role="alert"></div></section><section class="panel"><h2>Gambar bagian cerita</h2><p class="lead" style="margin:0 0 12px">Gambar di bagian "Lebih dekat dengan kami".</p>
+      <p class="hint" id="cerita-status"></p>
+      <div id="cerita-picker"></div>
+      <p class="hint">Gambar tampil utuh dengan tinggi otomatis.</p>
+      <div class="field" style="max-width:520px"><label for="f-cerita_alt">Teks pengganti gambar (untuk pembaca layar, opsional)</label><input id="f-cerita_alt" type="text" maxlength="160"><p class="err" id="e-cerita_alt"></p></div>
+      <div class="form-actions"><button class="btn btn-primary btn-inline" id="cerita-save" type="button">Simpan gambar</button><button class="btn btn-ghost" id="cerita-reset" type="button">Kembalikan ke gambar bawaan</button></div>
+      <div class="msg" id="cerita-msg" role="alert"></div></section>
+  <section class="panel">
+    <div class="page-head" style="margin-bottom:10px"><div><h2>Kartu pilihan camilan</h2><p class="lead" style="margin:0">Kartu di bagian "Pilihan camilan" halaman depan (maksimal 8). Jika belum ada kartu, halaman memakai 4 kartu bawaan.</p></div>
+      <button class="btn btn-primary btn-inline" id="btn-add" type="button">+ Tambah kartu</button></div>
+    <div id="form-panel" hidden style="border-top:1px solid var(--line);padding-top:14px;margin-top:6px">
+      <h2 id="form-title">Tambah kartu</h2>
+      <form id="form" novalidate>
+        <div class="grid2"><div class="field"><label for="f-label">Label kecil (opsional)</label><input id="f-label" type="text" maxlength="60" placeholder="Rasa klasik"><p class="err" id="e-label"></p></div><div class="field"><label for="f-judul">Judul</label><input id="f-judul" type="text" maxlength="120" placeholder="Keripik Ubi Original"><p class="err" id="e-judul"></p></div></div>
+        <div class="field"><label for="f-deskripsi">Deskripsi singkat (opsional)</label><textarea id="f-deskripsi" rows="2" maxlength="300"></textarea><p class="err" id="e-deskripsi"></p></div><div class="field"><label for="f-tautan">Tautan (opsional)</label><input id="f-tautan" type="text" maxlength="300"><p class="hint">Kosong = ke halaman produk. Contoh: produk.html atau https://wa.me/62822xxxxxxx</p><p class="err" id="e-tautan"></p></div>
+        <div class="grid2"><div class="field"><label for="f-urutan">Urutan tampil</label><input id="f-urutan" type="number"><p class="hint">Angka kecil tampil lebih dulu.</p><p class="err" id="e-urutan"></p></div>
+          <div class="field"><label class="check"><input id="f-aktif" type="checkbox" checked> Tampilkan di website</label></div></div>
+        <label>Gambar kartu</label>
+        <p class="hint">Gambar tampil utuh dengan tinggi otomatis (landscape, potret, atau persegi).</p>
+        <div id="picker"></div><p class="err" id="e-gambar"></p>
+        <div class="form-actions"><button class="btn btn-primary btn-inline" id="btn-save" type="submit">Simpan kartu</button><button class="btn btn-ghost" id="btn-cancel" type="button">Batal</button></div>
+        <div class="msg" id="form-msg" role="alert"></div>
+      </form>
+    </div>
+    <div class="table-wrap"><table class="table">
+      <thead><tr><th>Gambar</th><th>Kartu</th><th>Tautan</th><th>Urutan</th><th>Status</th><th>Aksi</th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table></div>
+    <p class="empty" id="empty"></p>
+  </section>
+</main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+  <script src="../assets/js/config.js"></script>
+  <script src="../assets/js/supabase-client.js"></script>
+  <script src="../assets/js/admin-ui.js"></script>
+  <script src="../assets/js/admin-auth.js"></script>
+  <script src="../assets/js/admin-logic.js"></script>
+  <script src="../assets/js/admin-storage.js"></script>
+  <script src="../assets/js/admin-layout.js"></script>
+  <script src="../assets/js/pages/beranda.js"></script>
+</body>
+</html>

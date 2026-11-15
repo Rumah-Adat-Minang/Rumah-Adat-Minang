@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id" class="guarded">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Pengaturan Website | Admin Rumah Adat Minang</title>
+  <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body>
+<main id="content" class="content">
+  <div class="page-head"><div><h1>Pengaturan Website</h1><p class="lead">Teks umum yang tampil di seluruh halaman pengunjung.</p></div></div>
+  <form id="form" novalidate>
+    <section class="panel"><h2>Umum</h2>
+      <div class="field"><label for="f-judul_situs">Judul situs</label><input id="f-judul_situs" type="text" maxlength="120"><p class="hint">Tampil di tab browser.</p><p class="err" id="e-judul_situs"></p></div><div class="field"><label for="f-deskripsi_situs">Deskripsi situs</label><textarea id="f-deskripsi_situs" rows="2" maxlength="300"></textarea><p class="hint">Dipakai mesin pencari.</p><p class="err" id="e-deskripsi_situs"></p></div>
+    </section>
+    <section class="panel"><h2>Bilah atas</h2>
+      <div class="grid2"><div class="field"><label for="f-teks_topbar_kiri">Teks kiri</label><input id="f-teks_topbar_kiri" type="text" maxlength="200"><p class="err" id="e-teks_topbar_kiri"></p></div><div class="field"><label for="f-teks_topbar_kanan">Teks kanan</label><input id="f-teks_topbar_kanan" type="text" maxlength="200"><p class="err" id="e-teks_topbar_kanan"></p></div></div>
+    </section>
+    <section class="panel"><h2>Footer</h2>
+      <div class="field"><label for="f-teks_footer_1">Baris 1</label><input id="f-teks_footer_1" type="text" maxlength="200"><p class="err" id="e-teks_footer_1"></p></div><div class="field"><label for="f-teks_footer_2">Baris 2</label><input id="f-teks_footer_2" type="text" maxlength="200"><p class="err" id="e-teks_footer_2"></p></div>
+    </section>
+    <section class="panel"><h2>Tampilan</h2>
+      <label class="check" style="margin-top:0"><input id="f-tampilkan_banner" type="checkbox"> Tampilkan banner promosi di website</label>
+    </section>
+    <div class="form-actions"><button class="btn btn-primary btn-inline" id="btn-save" type="submit">Simpan pengaturan</button></div>
+    <div class="msg" id="form-msg" role="alert"></div>
+  </form>
+</main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+  <script src="../assets/js/config.js"></script>
+  <script src="../assets/js/supabase-client.js"></script>
+  <script src="../assets/js/admin-ui.js"></script>
+  <script src="../assets/js/admin-auth.js"></script>
+  <script src="../assets/js/admin-logic.js"></script>
+  <script src="../assets/js/admin-storage.js"></script>
+  <script src="../assets/js/admin-layout.js"></script>
+  <script src="../assets/js/pages/pengaturan.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id" class="guarded">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Kelola Produk | Admin Rumah Adat Minang</title>
+  <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body>
+<main id="content" class="content">
+  <div class="page-head"><div><h1>Kelola Produk</h1><p class="lead">Tambah, ubah, dan atur produk yang tampil di katalog website.</p></div><button class="btn btn-primary btn-inline" id="btn-add" type="button">+ Tambah produk</button></div>
+  <section class="panel" id="form-panel" hidden>
+    <h2 id="form-title">Tambah produk</h2>
+    <form id="form" novalidate>
+      <div class="form-split">
+        <div>
+          <div class="field"><label for="f-nama">Nama produk</label><input id="f-nama" type="text" maxlength="120" placeholder="Contoh: Keripik Ubi Original"><p class="err" id="e-nama"></p></div>
+          <div class="grid2"><div class="field"><label for="f-harga">Harga (Rp)</label><input id="f-harga" type="text" placeholder="15.000"><p class="hint">Boleh 15000 atau 15.000.</p><p class="err" id="e-harga"></p></div><div class="field"><label for="f-ukuran">Ukuran / kemasan (opsional)</label><input id="f-ukuran" type="text" maxlength="40" placeholder="500 Gram"><p class="err" id="e-ukuran"></p></div></div>
+          <div class="grid2">
+            <div class="field"><label for="f-kategori_id">Kategori</label><select id="f-kategori_id"><option value="">Tanpa kategori</option></select>
+              <p class="hint" id="kat-hint"></p></div>
+            <div class="field"><label for="f-urutan">Urutan tampil</label><input id="f-urutan" type="number"><p class="hint">Angka kecil tampil lebih dulu.</p><p class="err" id="e-urutan"></p></div>
+          </div>
+          <div class="field"><label for="f-deskripsi">Deskripsi (opsional)</label><textarea id="f-deskripsi" rows="4" maxlength="2000"></textarea><p class="err" id="e-deskripsi"></p></div>
+          <label>Foto produk</label>
+          <div id="picker"></div>
+          <label class="check-inline" id="remove-row" hidden><input id="f-hapus-gambar" type="checkbox"> Hapus foto saat ini</label>
+          <label class="check-inline"><input id="f-aktif" type="checkbox" checked> Tampilkan di website</label>
+        </div>
+        <aside class="preview-box"><h3>Pratinjau di halaman pengunjung</h3><div id="preview-slot"></div></aside>
+      </div>
+      <div class="form-actions"><button class="btn btn-primary btn-inline" id="btn-save" type="submit">Simpan produk</button><button class="btn btn-ghost" id="btn-cancel" type="button">Batal</button></div>
+      <div class="msg" id="form-msg" role="alert"></div>
+    </form>
+  </section>
+  <section class="panel">
+    <div class="toolbar">
+      <input id="q" type="search" placeholder="Cari nama produk..." aria-label="Cari nama produk">
+      <select id="kat" aria-label="Filter kategori"><option value="">Semua kategori</option><option value="none">Tanpa kategori</option></select>
+      <select id="st" aria-label="Filter status"><option value="">Semua status</option><option value="1">Tampil</option><option value="0">Tersembunyi</option></select>
+    </div>
+    <p class="hint" id="count"></p>
+    <div class="table-wrap"><table class="table">
+      <thead><tr><th>Foto</th><th>Produk</th><th>Kategori</th><th>Harga</th><th>Status</th><th>Aksi</th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table></div>
+    <p class="empty" id="empty"></p>
+  </section>
+</main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+  <script src="../assets/js/config.js"></script>
+  <script src="../assets/js/supabase-client.js"></script>
+  <script src="../assets/js/admin-ui.js"></script>
+  <script src="../assets/js/admin-auth.js"></script>
+  <script src="../assets/js/admin-logic.js"></script>
+  <script src="../assets/js/admin-storage.js"></script>
+  <script src="../assets/js/admin-layout.js"></script>
+  <script src="../assets/js/admin-preview.js"></script>
+  <script src="../assets/js/pages/produk.js"></script>
+</body>
+</html>

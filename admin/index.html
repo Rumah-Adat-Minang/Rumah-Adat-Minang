@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="id" class="guarded">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Dashboard | Admin Rumah Adat Minang</title>
+  <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body>
+<main id="content" class="content">
+  <div class="page-head"><div><h1>Dashboard</h1><p class="lead">Ringkasan pengelolaan website Pusat Oleh-Oleh Keripik Rumah Adat Minang.</p></div></div>
+  <div class="stat-grid" id="stats"></div>
+  <section class="panel"><h2>Informasi pengelolaan</h2><ul class="todo" id="todo"></ul></section>
+  <section class="panel"><h2>Menu cepat</h2>
+    <div class="quick">
+      <a href="produk.html">Kelola produk</a><a href="kategori.html">Kelola kategori</a><a href="banner.html">Kelola banner</a><a href="beranda.html">Gambar beranda</a>
+      <a href="profil.html">Profil toko</a><a href="pengaturan.html">Pengaturan website</a><a href="akun.html">Pengaturan akun</a>
+    </div>
+  </section>
+  <section class="panel"><h2>Cara kerja singkat</h2>
+    <p>Perubahan yang Anda simpan di sini langsung tersimpan di database dan tampil di website pengunjung. Data yang disembunyikan tidak akan terlihat oleh pengunjung, tetapi tetap aman dan bisa ditampilkan lagi kapan saja.</p>
+    <p class="hint">Gunakan tombol <strong>Keluar</strong> di menu samping setelah selesai, terutama di perangkat bersama.</p>
+  </section>
+</main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+  <script src="../assets/js/config.js"></script>
+  <script src="../assets/js/supabase-client.js"></script>
+  <script src="../assets/js/admin-ui.js"></script>
+  <script src="../assets/js/admin-auth.js"></script>
+  <script src="../assets/js/admin-logic.js"></script>
+  <script src="../assets/js/admin-storage.js"></script>
+  <script src="../assets/js/admin-layout.js"></script>
+  <script src="../assets/js/pages/dashboard.js"></script>
+</body>
+</html>

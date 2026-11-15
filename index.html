@@ -1,25 +1,43 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Website profil dan promosi Pusat Oleh-Oleh Keripik Rumah Adat Minang.">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Rumah Adat Minang - pusat oleh-oleh keripik.">
   <title>Beranda | Rumah Adat Minang</title>
-  <link rel="stylesheet" href="assets/style.css">
-  <script src="assets/script.js" defer></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/tambahan.css">
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/script.js" defer></script>
+  <script src="assets/js/site.js" defer></script>
+  <script>
+    (function(d) {
+      d.documentElement.classList.add("site-wait");
+      setTimeout(function() {
+        d.documentElement.classList.remove("site-wait");
+      }, 4000);
+    })(document);
+  </script>
 </head>
-
 <body>
-  <div class="topbar"><div class="container topbar-inner">
-    <span>Rasa tradisi, teman perjalanan.</span>
-    <span>Medan, Sumatera Utara</span></div></div>
+
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>✦ Rasa tradisi, teman perjalanan</span>
+      <span>Medan, Sumatera Utara</span>
+    </div>
+  </div>
+
   <header class="site-header">
     <div class="container nav-wrap">
-      <a class="brand" href="index.html" aria-label="Rumah Adat Minang beranda">
+      <a class="brand" href="index.html">
         <span class="brand-mark">
-          <img src="assets/Logo.jpeg" alt="Logo Minang" style="width: auto; height: 40px; object-fit: contain;">
+          <img src="assets/img/Logo.jpeg" alt="Logo Rumah Adat Minang">
         </span>
-        <span><strong>Rumah Adat Minang</strong><small>Pusat Oleh-Oleh Keripik</small></span>
+        <span>
+          <strong>Rumah Adat Minang</strong>
+          <small>Pusat Oleh-Oleh Keripik</small>
+        </span>
       </a>
       <button class="menu-toggle" aria-label="Buka menu" aria-expanded="false">☰</button>
       <nav class="nav-links" aria-label="Navigasi utama">
@@ -30,73 +48,152 @@
       </nav>
     </div>
   </header>
+
   <main>
-    <section class="hero">
-      <div class="hero-pattern"></div>
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <span class="eyebrow"><span class="dot"></span> Oleh-oleh bercita rasa Nusantara</span>
-          <h1>Kenangan manis,<br><em>rasa yang khas.</em></h1>
-          <p>Temukan inspirasi oleh-oleh keripik untuk menemani waktu santai dan menjadi buah tangan bagi orang tersayang.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="produk.html">Jelajahi Produk <span>↗</span></a>
-            <a class="btn btn-outline" href="tentang.html">Kenali Usaha Kami</a>
-          </div>
-          
-        </div>
-        
-          <div class="hero-art">
-              <img src="assets/Logo.jpeg" alt="Logo Minang" class="hero-logo">
-              <div class="floating-stamp">
-                  Dibuat dengan<br>
-                  <strong>Cerita lokal</strong>
-              </div>
-          </div>
-
-      </div>
-    </section>
-
-    <section class="section container">
-      <div class="section-heading">
+    <!-- Hero Section -->
+    <section class="h-hero">
+      <div class="container h-grid">
         <div>
-          <span class="eyebrow">Selamat datang</span>
-          <h2>Oleh-oleh yang punya cerita</h2>
+          <span class="kicker">Cita rasa khas, kebanggaan Minang</span>
+          <h1>Lezatnya tradisi,<br><em>hangatnya berbagi.</em></h1>
+          <p class="h-lead">
+            Temukan pilihan keripik dan camilan untuk menemani waktu santai, atau jadikan buah tangan istimewa bagi keluarga dan orang tersayang.
+          </p>
+          <div class="h-actions">
+            <a class="h-btn h-primary" href="produk.html">Jelajahi Produk ↗</a>
+            <a class="h-btn h-secondary" href="tentang.html">Cerita Kami</a>
+          </div>
         </div>
-      </div>
-      <div class="feature-grid">
-        <article class="feature-card">
-          <div class="feature-icon">✺</div>
-          <h3>Kenali usaha</h3>
-          <p>Baca profil dan cerita usaha setelah informasi dikonfirmasi oleh pemilik.</p>
-          <a href="tentang.html" class="text-link">Tentang kami ↗</a>
-        </article>
-        <article class="feature-card">
-          <div class="feature-icon">❋</div>
-          <h3>Lihat pilihan produk</h3>
-          <p>Jelajahi koleksi produk kami. Informasi nama produk, foto, ukuran, dan harga disajikan untuk memberikan gambaran lengkap mengenai pilihan produk yang tersedia.</p>
-          <a href="produk.html" class="text-link">Lihat katalog ↗</a>
-        </article>
-        <article class="feature-card">
-          <div class="feature-icon">⌖</div
-          ><h3>Temukan lokasi</h3>
-          <p>Temukan informasi alamat dan kontak resmi kami untuk memudahkan Anda menghubungi serta mendapatkan informasi lebih lanjut mengenai produk dan layanan yang tersedia.</p>
-          <a href="lokasi.html" class="text-link">Lokasi & kontak ↗</a>
-        </article>
+        <div class="h-art">
+          <div class="h-logo">
+            <img src="assets/img/Logo.jpeg" alt="Logo Rumah Adat Minang bergambar rumah gadang dan keripik">
+          </div>
+          <div class="h-stamp">Pilihan camilan<b>Rasa Minang!</b></div>
+        </div>
       </div>
     </section>
 
-    <section class="quote-band">
-      <div class="container quote-inner">
-        <span class="quote-mark">“</span>
-        <p>Oleh-oleh bukan hanya soal rasa, tetapi juga tentang cerita yang dibawa pulang.</p>
-        <span class="quote-caption">KALIMAT PROMOSI CONTOH</span>
+    <!-- Strip Section -->
+    <section class="h-strip">
+      <div class="container">
+        <div><b>✦</b> Nuansa tradisi Minangkabau</div>
+        <div><b>❖</b> Beragam pilihan camilan</div>
+        <div><b>♡</b> Cocok untuk buah tangan</div>
       </div>
     </section>
-    <section class="section container cta-section">
-      <div>
-        <span class="eyebrow">Ada yang ingin ditanyakan?</span>
-        <h2>Hubungi toko untuk informasi produk.</h2>
-        <a class="btn btn-primary" href="lokasi.html">Lihat kontak <span>↗</span></a>
+
+    <!-- Products Section -->
+    <section class="h-section">
+      <div class="container">
+        <div class="h-heading">
+          <span class="overline">Temukan favoritmu</span>
+          <h2>Pilihan camilan untuk setiap suasana</h2>
+          <p>Kenali beberapa pilihan produk yang tersedia. Kunjungi katalog untuk melihat informasi produk lebih lanjut.</p>
+        </div>
+
+        <div class="h-products">
+          <article class="h-product">
+            <div class="h-photo">
+              <img src="assets/img/KeripikUbi-ori.jpg" alt="Keripik ubi original">
+            </div>
+            <div class="h-pbody">
+              <small>Rasa klasik</small>
+              <h3>Keripik Ubi Original</h3>
+              <p>Camilan renyah dengan cita rasa original.</p>
+              <a href="produk.html">Lihat katalog ↗</a>
+            </div>
+          </article>
+
+          <article class="h-product">
+            <div class="h-photo">
+              <img src="assets/img/KeripikUbi-balado.jpg" alt="Keripik ubi balado">
+            </div>
+            <div class="h-pbody">
+              <small>Rasa berbumbu</small>
+              <h3>Keripik Ubi Balado</h3>
+              <p>Pilihan bercita rasa balado untuk pencinta rasa gurih.</p>
+              <a href="produk.html">Lihat katalog ↗</a>
+            </div>
+          </article>
+
+          <article class="h-product">
+            <div class="h-photo">
+              <img src="assets/img/KeripikUbi-jagung.jpg" alt="Keripik ubi jagung">
+            </div>
+            <div class="h-pbody">
+              <small>Teman santai</small>
+              <h3>Keripik Ubi Jagung</h3>
+              <p>Varian rasa jagung untuk melengkapi waktu santai.</p>
+              <a href="produk.html">Lihat katalog ↗</a>
+            </div>
+          </article>
+
+          <article class="h-product">
+            <div class="h-photo">
+              <img src="assets/img/Pang-pang.jpg" alt="Camilan pang-pang">
+            </div>
+            <div class="h-pbody">
+              <small>Camilan pilihan</small>
+              <h3>Kue Pang-Pang</h3>
+              <p>Alternatif camilan manis dan renyah.</p>
+              <a href="produk.html">Lihat katalog ↗</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="h-story">
+      <div class="container h-section h-story-grid">
+        <div class="h-story-img">
+          <img src="assets/img/Logo.jpeg" alt="Identitas Rumah Adat Minang">
+        </div>
+        <div>
+          <span class="overline">Lebih dekat dengan kami</span>
+          <h2>Oleh-oleh bukan sekadar camilan.</h2>
+          <p>
+            Setiap buah tangan membawa cerita dan kenangan. Rumah Adat Minang hadir sebagai tempat untuk mengenal pilihan camilan yang dapat dinikmati bersama maupun dibawa pulang untuk orang tersayang.
+          </p>
+          <p>Jelajahi profil usaha dan temukan informasi lebih lanjut mengenai Rumah Adat Minang.</p>
+          <a class="h-btn h-primary" href="tentang.html">Kenali Rumah Adat Minang ↗</a>
+          
+          <div class="h-values">
+            <div class="h-value">
+              <b>Tradisi</b>
+              <span>Terinspirasi nuansa Minang</span>
+            </div>
+            <div class="h-value">
+              <b>Kebersamaan</b>
+              <span>Teman berbagi cerita</span>
+            </div>
+            <div class="h-value">
+              <b>Buah tangan</b>
+              <span>Untuk orang tersayang</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="h-quote">
+      <div class="container">
+        <strong>“</strong>
+        <p>Bawa pulang rasa, bagikan cerita, dan hadirkan kehangatan dalam setiap kebersamaan.</p>
+        <small>RUMAH ADAT MINANG</small>
+      </div>
+    </section>
+
+    <!-- Contact CTA Section -->
+    <section class="h-contact">
+      <div class="container h-cta">
+        <div>
+          <span class="overline">Ingin tahu lebih banyak?</span>
+          <h2>Temukan camilan favoritmu.</h2>
+          <p>Lihat katalog produk atau hubungi kami untuk informasi lebih lanjut.</p>
+        </div>
+        <a class="h-btn h-primary" href="lokasi.html">Hubungi Kami ↗</a>
       </div>
     </section>
   </main>
@@ -105,7 +202,7 @@
     <div class="container footer-main">
       <a class="brand brand-light" href="index.html">
         <span class="brand-mark">
-          <img src="assets/Logo.jpeg" alt="Logo Minang" style="width: auto; height: 40px; object-fit: contain;">
+          <img src="assets/img/Logo.jpeg" alt="Logo Rumah Adat Minang">
         </span>
         <span>
           <strong>Rumah Adat Minang</strong>
@@ -115,8 +212,10 @@
       <p>Website profil dan promosi usaha.<br><strong>Proyek mahasiswa Universitas Harapan.</strong></p>
     </div>
     <div class="container footer-bottom">
-      <span>© <span data-year></span> Rumah Adat Minang · Konsep website</span><span>Dibuat untuk mendukung promosi usaha lokal</span>
+      <span>© <span data-year></span> Rumah Adat Minang</span>
+      <span>Rasa tradisi, teman perjalanan.</span>
     </div>
   </footer>
+
 </body>
 </html>

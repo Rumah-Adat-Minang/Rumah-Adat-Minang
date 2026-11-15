@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="id" class="guarded">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Kelola Kategori | Admin Rumah Adat Minang</title>
+  <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body>
+<main id="content" class="content">
+  <div class="page-head"><div><h1>Kelola Kategori</h1><p class="lead">Kategori dipakai pengunjung untuk menyaring produk.</p></div><button class="btn btn-primary btn-inline" id="btn-add" type="button">+ Tambah kategori</button></div>
+  <section class="panel" id="form-panel" hidden>
+    <h2 id="form-title">Tambah kategori</h2>
+    <form id="form" novalidate>
+      <div class="grid2"><div class="field"><label for="f-nama">Nama kategori</label><input id="f-nama" type="text" maxlength="80"><p class="err" id="e-nama"></p></div><div class="field"><label for="f-slug">Slug (alamat kategori)</label><input id="f-slug" type="text" maxlength="60"><p class="hint">Dibuat otomatis dari nama. Huruf kecil, angka, tanda hubung.</p><p class="err" id="e-slug"></p></div></div>
+      <div class="field"><label for="f-deskripsi">Deskripsi (opsional)</label><textarea id="f-deskripsi" rows="3" maxlength="500"></textarea><p class="err" id="e-deskripsi"></p></div>
+      <div class="grid2"><div class="field"><label for="f-urutan">Urutan tampil</label><input id="f-urutan" type="number"><p class="hint">Angka kecil tampil lebih dulu.</p><p class="err" id="e-urutan"></p></div>
+        <div class="field"><label class="check"><input id="f-aktif" type="checkbox" checked> Tampilkan di website</label></div></div>
+      <div class="form-actions"><button class="btn btn-primary btn-inline" id="btn-save" type="submit">Simpan</button><button class="btn btn-ghost" id="btn-cancel" type="button">Batal</button></div>
+      <div class="msg" id="form-msg" role="alert"></div>
+    </form>
+  </section>
+  <section class="panel">
+    <div class="table-wrap"><table class="table">
+      <thead><tr><th>Kategori</th><th>Slug</th><th>Urutan</th><th>Produk</th><th>Status</th><th>Aksi</th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table></div>
+    <p class="empty" id="empty"></p>
+  </section>
+</main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+  <script src="../assets/js/config.js"></script>
+  <script src="../assets/js/supabase-client.js"></script>
+  <script src="../assets/js/admin-ui.js"></script>
+  <script src="../assets/js/admin-auth.js"></script>
+  <script src="../assets/js/admin-logic.js"></script>
+  <script src="../assets/js/admin-storage.js"></script>
+  <script src="../assets/js/admin-layout.js"></script>
+  <script src="../assets/js/pages/kategori.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="id" class="guarded">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Pengaturan Akun | Admin Rumah Adat Minang</title>
+  <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body>
+<main id="content" class="content">
+  <div class="page-head"><div><h1>Pengaturan Akun</h1><p class="lead">Keamanan akun admin Anda.</p></div></div>
+  <section class="panel"><h2>Akun</h2><p>Email: <strong id="email">...</strong></p>
+    <p class="hint">Untuk mengganti email atau menambah admin, hubungi pengelola teknis website.</p></section>
+  <section class="panel" style="max-width:480px"><h2>Ganti password</h2>
+    <form id="form" novalidate>
+      <label for="f-lama">Password saat ini</label><div class="pw-row"><input id="f-lama" type="password" autocomplete="current-password"><button type="button" class="pw-toggle" data-target="f-lama" aria-label="Tampilkan atau sembunyikan password">Lihat</button></div><label for="f-baru">Password baru</label><div class="pw-row"><input id="f-baru" type="password" autocomplete="new-password"><button type="button" class="pw-toggle" data-target="f-baru" aria-label="Tampilkan atau sembunyikan password">Lihat</button></div>
+      <p class="hint">Minimal 8 karakter, mengandung huruf dan angka.</p>
+      <label for="f-konf">Ulangi password baru</label><div class="pw-row"><input id="f-konf" type="password" autocomplete="new-password"><button type="button" class="pw-toggle" data-target="f-konf" aria-label="Tampilkan atau sembunyikan password">Lihat</button></div>
+      <div class="form-actions"><button class="btn btn-primary btn-inline" id="btn-save" type="submit">Simpan password</button></div>
+      <div class="msg" id="form-msg" role="alert"></div>
+    </form>
+  </section>
+</main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+  <script src="../assets/js/config.js"></script>
+  <script src="../assets/js/supabase-client.js"></script>
+  <script src="../assets/js/admin-ui.js"></script>
+  <script src="../assets/js/admin-auth.js"></script>
+  <script src="../assets/js/admin-logic.js"></script>
+  <script src="../assets/js/admin-storage.js"></script>
+  <script src="../assets/js/admin-layout.js"></script>
+  <script src="../assets/js/pages/akun.js"></script>
+</body>
+</html>
