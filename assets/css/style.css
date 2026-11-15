@@ -1,0 +1,1762 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap');
+
+/* ==========================================================================
+   1. VARIABEL TEMA & IDENTITAS VISUAL RUMAH ADAT MINANG
+   [DITIMPA & DIRAPIKAN] Menggabungkan 3 blok :root yang duplikat menjadi satu
+   ========================================================================== */
+:root {
+    --ink: #35231b;
+    --muted: #786657;
+    --cream: #fff7df;
+    --paper: #fffdf7;
+    --red: #b51f1b;
+    --red-dark: #7e1714;
+    --gold: #f3c51b;
+    --green: #353f2b;
+    --line: #efdca9;
+    --shadow: 0 18px 50px rgba(69, 43, 24, .12);
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'DM Sans', Arial, sans-serif;
+
+    /* Alias variabel khusus halaman beranda */
+    --r: #b51f1b;
+    --rd: #7e1714;
+    --y: #f3c51b;
+}
+
+/* ==========================================================================
+   2. RESET & PENGATURAN DASAR GLOBAL
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--paper); /* [DITIMPA] Menggunakan tema #fffdf7 */
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+h1, h2, h3, p {
+    margin-top: 0;
+}
+
+h1, h2 {
+    font-family: var(--serif);
+    font-weight: 500;
+    letter-spacing: -.035em;
+    line-height: 1.12;
+}
+
+h1 {
+    font-size: clamp(42px, 5.2vw, 66px);
+    margin: 18px 0 20px;
+}
+
+h1 em, h2 em {
+    color: var(--red);
+    font-weight: 500;
+}
+
+h2 {
+    font-size: clamp(30px, 3.4vw, 43px);
+    margin: 13px 0 16px;
+}
+
+h3 {
+    font-family: var(--serif);
+    font-size: 21px;
+    line-height: 1.25;
+    margin-bottom: 10px;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+.container {
+    width: min(1120px, calc(100% - 44px));
+    margin-inline: auto;
+}
+
+/* ==========================================================================
+   3. TOPBAR & HEADER NAVIGASI
+   [DITIMPA & DIRAPIKAN] Menggabungkan aturan header dari tema utama & beranda
+   ========================================================================== */
+.topbar {
+    background: var(--red-dark);
+    color: #fff2cf; /* [DITIMPA] */
+    font-size: 11px;
+    letter-spacing: .035em;
+}
+
+.topbar-inner {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 8px 0;
+}
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(255, 253, 247, 0.96); /* [DITIMPA] */
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #f0dfb9; /* [DITIMPA] */
+}
+
+.nav-wrap {
+    min-height: 76px; /* [DITIMPA] dari 82px menjadi 76px */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.brand-mark {
+    display: grid;
+    place-items: center;
+    width: 52px;  /* [DITIMPA] dari 44px */
+    height: 52px; /* [DITIMPA] dari 44px */
+    padding: 2px;
+    background: #fff; /* [DITIMPA] disesuaikan untuk logo gambar */
+    border: 0;
+    outline: 0;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.brand-mark img,
+.brand-light .brand-mark img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain;
+}
+
+.brand strong,
+.brand small {
+    display: block;
+    line-height: 1.35;
+}
+
+.brand strong {
+    font: 700 18px var(--serif); /* [DITIMPA] */
+    color: var(--red-dark);
+}
+
+.brand small {
+    font-size: 10px;
+    color: #896c43; /* [DITIMPA] */
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    margin-top: 3px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links a {
+    font-size: 13px;
+    font-weight: 600;
+    color: #604b3a; /* [DITIMPA] */
+    position: relative;
+    padding: 30px 0;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--red);
+}
+
+.nav-links a.active:after {
+    content: "";
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--gold);
+}
+
+.menu-toggle {
+    display: none;
+    border: 1px solid #e8d28d; /* [DITIMPA] */
+    background: var(--cream);
+    color: var(--red);
+    border-radius: 7px;
+    padding: 8px 11px;
+    font-size: 20px;
+}
+
+/* ==========================================================================
+   4. KOMPONEN UMUM (TOMBOL, SECTION, EYEBROW, NOTICE)
+   ========================================================================== */
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    color: var(--red);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+}
+
+.dot {
+    width: 7px;
+    height: 7px;
+    background: var(--gold);
+    border-radius: 50%;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    min-height: 48px;
+    padding: 12px 19px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    font: 600 12px var(--sans);
+    transition: .2s ease;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: var(--red);
+    color: #fff8eb;
+    box-shadow: 0 8px 18px #a21d1d2b; /* [DITIMPA] */
+}
+
+.btn-primary:hover {
+    background: var(--red-dark);
+    transform: translateY(-1px);
+}
+
+.btn-outline {
+    border-color: #e7c86c; /* [DITIMPA] */
+    color: var(--red-dark); /* [DITIMPA] */
+    background: rgba(255, 255, 255, .35);
+}
+
+.btn-outline:hover {
+    border-color: var(--red);
+    color: var(--red);
+}
+
+.text-link {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--red);
+}
+
+.text-link:hover {
+    text-decoration: underline;
+}
+
+.section {
+    padding-top: 86px;
+    padding-bottom: 86px;
+}
+
+.section-muted {
+    background: #fff4d4; /* [DITIMPA] */
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+.section-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 36px;
+    margin-bottom: 34px;
+}
+
+.section-heading h2,
+.about-copy h2,
+.contact-copy h2,
+.contact-form-wrap h2,
+.catalog-tools h2 {
+    color: #39251c; /* [DITIMPA] */
+    font-family: var(--serif);
+}
+
+.section-heading h2 {
+    max-width: 530px;
+    margin-bottom: 0;
+}
+
+.section-heading > p,
+.muted,
+.about-copy > p,
+.contact-copy > p,
+.contact-form-wrap > div > p {
+    color: #715e4b; /* [DITIMPA] */
+}
+
+.section-heading > p {
+    max-width: 380px;
+    font-size: 13px;
+    margin-bottom: 2px;
+}
+
+.muted {
+    font-size: 12px;
+    margin: 0;
+}
+
+.notice {
+    padding: 15px 17px;
+    border-left: 3px solid var(--gold);
+    background: #f8f0e1;
+    color: #65513b;
+    font-size: 12px;
+    line-height: 1.6;
+    margin-top: 22px;
+}
+
+.notice strong {
+    color: var(--red-dark);
+}
+
+.notice-wide {
+    margin-top: 30px;
+}
+
+/* ==========================================================================
+   5. HALAMAN BERANDA (INDEX.HTML)
+   ========================================================================== */
+.h-hero {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(115deg, #fff9e9, #ffedb9);
+    padding: 55px 0 65px;
+}
+
+.h-hero:before {
+    content: "";
+    position: absolute;
+    width: 540px;
+    height: 540px;
+    border: 2px solid #b51f1b15;
+    border-radius: 50%;
+    right: -150px;
+    top: -260px;
+    box-shadow: 0 0 0 30px #b51f1b08, 0 0 0 65px #b51f1b06;
+}
+
+.h-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 40px;
+}
+
+.kicker,
+.overline {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--r);
+}
+
+.kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    border: 1px solid #e9cc69;
+    border-radius: 30px;
+    background: #fff9e9;
+    padding: 9px 14px;
+    letter-spacing: 0.08em;
+}
+
+.kicker:before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--y);
+}
+
+.h-hero h1 {
+    font: 800 clamp(42px, 5.4vw, 68px) / 1.06 var(--serif);
+    letter-spacing: -0.04em;
+    color: #3b2118;
+    margin: 20px 0;
+}
+
+.h-hero h1 em {
+    font-style: normal;
+    color: var(--r);
+}
+
+.h-lead {
+    max-width: 510px;
+    color: #715d4a;
+    font-size: 15px;
+    line-height: 1.85;
+}
+
+.h-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.h-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 49px;
+    padding: 0 21px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 800;
+    transition: 0.2s;
+}
+
+.h-primary {
+    background: var(--r);
+    color: white;
+    box-shadow: 0 8px 18px #a21d1d2b;
+}
+
+.h-primary:hover {
+    background: var(--rd);
+    transform: translateY(-2px);
+}
+
+.h-secondary {
+    background: #fffdf7;
+    border: 1px solid #e7c86c;
+    color: var(--rd);
+}
+
+.h-secondary:hover {
+    border-color: var(--r);
+    transform: translateY(-2px);
+}
+
+.h-art {
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-height: 390px;
+}
+
+.h-logo {
+    width: min(100%, 410px);
+    aspect-ratio: 1;
+    background: white;
+    border: 7px solid var(--y);
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 22px 50px #71351d26;
+    transform: rotate(1deg);
+}
+
+.h-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.h-stamp {
+    position: absolute;
+    right: 0;
+    bottom: 16px;
+    background: var(--r);
+    color: #fff7df;
+    border: 4px solid #ffdf50;
+    border-radius: 12px;
+    padding: 13px 18px;
+    text-align: center;
+    font-size: 11px;
+    transform: rotate(-5deg);
+    box-shadow: 0 10px 22px #63241f35;
+}
+
+.h-stamp b {
+    display: block;
+    font: 700 20px var(--serif);
+    color: #ffe36a;
+}
+
+/* Strip Keunggulan Beranda */
+.h-strip {
+    background: var(--r);
+    color: #fff6dc;
+}
+
+.h-strip .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    padding: 18px 0;
+}
+
+.h-strip div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.h-strip b {
+    color: #ffdf52;
+    font-size: 19px;
+}
+
+/* Produk Pilihan Beranda */
+.h-section {
+    padding: 76px 0;
+}
+
+.h-heading {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 32px;
+}
+
+.h-heading h2,
+.h-story h2,
+.h-cta h2 {
+    font: 700 clamp(29px, 3.6vw, 42px) / 1.17 var(--serif);
+    color: #39251c;
+    margin: 10px 0;
+}
+
+.h-heading p {
+    font-size: 13px;
+    line-height: 1.8;
+    color: var(--muted);
+}
+
+.h-products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 17px;
+}
+
+.h-product {
+    border: 1px solid #f0e2c3;
+    background: white;
+    border-radius: 13px;
+    overflow: hidden;
+    box-shadow: 0 8px 22px #4d30100a;
+    transition: 0.25s;
+}
+
+.h-product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 28px #4d301018;
+}
+
+.h-photo {
+    aspect-ratio: 1;
+    background: #fff7e5;
+    padding: 10px;
+}
+
+.h-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.h-pbody {
+    padding: 14px 15px 17px;
+}
+
+.h-pbody small {
+    font-size: 10px;
+    color: #b18424;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.h-pbody h3 {
+    font: 700 18px var(--serif);
+    margin: 5px 0;
+    color: #45271e;
+}
+
+.h-pbody p {
+    font-size: 11px;
+    line-height: 1.65;
+    color: var(--muted);
+    margin: 0;
+}
+
+.h-pbody a {
+    display: inline-block;
+    margin-top: 12px;
+    color: var(--r);
+    font-size: 11px;
+    font-weight: 800;
+}
+
+/* Cerita Kami (Beranda) */
+.h-story {
+    background: #fff4d4;
+}
+
+.h-story-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 48px;
+    align-items: center;
+}
+
+.h-story-img {
+    padding: 18px;
+    position: relative;
+}
+
+.h-story-img img {
+    width: min(100%, 370px);
+    margin: auto;
+    border-radius: 20px;
+    box-shadow: 0 18px 35px #5a321c24;
+}
+
+.h-story-img:before {
+    content: "";
+    position: absolute;
+    inset: 0 8% 8%;
+    border: 2px solid #e8bd39;
+    border-radius: 22px;
+    transform: rotate(-5deg);
+}
+
+.h-story p {
+    font-size: 13px;
+    line-height: 1.9;
+    color: #715e4b;
+}
+
+.h-values {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 9px;
+    margin-top: 22px;
+}
+
+.h-value {
+    background: #fffdf6;
+    border: 1px solid #efdca9;
+    border-radius: 9px;
+    padding: 12px;
+}
+
+.h-value b {
+    display: block;
+    font: 700 15px var(--serif);
+    color: var(--rd);
+}
+
+.h-value span {
+    font-size: 10px;
+    color: #806d59;
+}
+
+/* Quote & CTA Beranda */
+.h-quote {
+    padding: 58px 0;
+    text-align: center;
+    background: var(--rd);
+    color: #fff4d5;
+}
+
+.h-quote strong {
+    font: 700 48px var(--serif);
+    color: #f5cb37;
+}
+
+.h-quote p {
+    max-width: 750px;
+    margin: 8px auto 14px;
+    font: 600 clamp(22px, 3vw, 32px) / 1.4 var(--serif);
+}
+
+.h-quote small {
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    color: #f4d98c;
+}
+
+.h-contact {
+    padding: 62px 0;
+}
+
+.h-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    background: linear-gradient(110deg, #fff0bd, #fff9e9);
+    border: 1px solid #efd16d;
+    border-radius: 16px;
+    padding: 30px 35px;
+}
+
+.h-cta h2 {
+    font-size: clamp(25px, 3vw, 35px);
+    margin: 7px 0;
+}
+
+.h-cta p {
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0;
+}
+
+/* ==========================================================================
+   6. HERO SUB-HALAMAN & BREADCRUMB
+   ========================================================================== */
+.page-hero {
+    background: linear-gradient(115deg, #fff9e9, #ffedb9); /* [DITIMPA] */
+    border-bottom: 1px solid #efdca9;
+    padding: 65px 0 38px;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-hero:after {
+    content: "✳";
+    position: absolute;
+    right: 8%;
+    top: -56px;
+    font-size: 230px;
+    color: #e7c65e; /* [DITIMPA] */
+    opacity: 0.22;  /* [DITIMPA] */
+    pointer-events: none;
+}
+
+.page-hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+.page-hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(39px, 5vw, 57px);
+    color: #3b2118; /* [DITIMPA] */
+    max-width: 800px;
+    margin: 13px 0;
+}
+
+.page-hero h1 em {
+    color: var(--red);
+    font-style: normal; /* [DITIMPA] */
+}
+
+.page-hero p {
+    color: #715d4a; /* [DITIMPA] */
+    max-width: 650px;
+    margin-bottom: 20px;
+}
+
+.breadcrumb {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    color: #9b8267; /* [DITIMPA] */
+    font-size: 11px;
+}
+
+.breadcrumb a {
+    color: var(--red);
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   7. HALAMAN TENTANG KAMI (TENTANG.HTML)
+   ========================================================================== */
+.about-grid {
+    display: grid;
+    grid-template-columns: .85fr 1.15fr;
+    gap: 68px;
+    align-items: center;
+}
+
+.about-art {
+    min-height: 390px;
+    background: var(--red);
+    padding: 18px;
+    position: relative;
+}
+
+.about-art:before {
+    content: "";
+    position: absolute;
+    inset: 18px;
+    border: 1px solid #d6b26e;
+}
+
+.about-art-inner {
+    height: 100%;
+    min-height: 354px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #f7e8c6;
+    background: #fff; /* [DITIMPA] */
+    border-color: var(--gold);
+}
+
+.about-copy > p {
+    font-size: 14px;
+}
+
+.value-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.value-grid article {
+    border-top: 1px solid #efdca9;
+    background: #fffdf6; /* [DITIMPA] */
+    border-color: #efdca9;
+    border-radius: 12px;
+    padding: 30px 24px;
+}
+
+.value-grid article > span {
+    font-size: 11px;
+    letter-spacing: .12em;
+    color: #b18424; /* [DITIMPA] */
+    font-weight: 700;
+}
+
+.value-grid article h3 {
+    margin: 12px 0 8px;
+    color: var(--red-dark); /* [DITIMPA] */
+    font-family: var(--serif);
+}
+
+.value-grid p {
+    font-size: 13px;
+}
+
+/* ==========================================================================
+   8. KATALOG & HALAMAN PRODUK (PRODUK.HTML)
+   ========================================================================== */
+.catalog-tools {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 25px;
+    margin-bottom: 28px;
+}
+
+.catalog-tools h2 {
+    font-size: 32px;
+    margin: 0 0 5px;
+}
+
+.search-box {
+    width: min(290px, 100%);
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    border: 1px solid var(--line);
+    background: #fff;
+    padding: 0 13px;
+    color: var(--red);
+}
+
+.search-box span {
+    font-size: 23px;
+}
+
+.search-box input {
+    width: 100%;
+    min-width: 0;
+    border: 0;
+    outline: 0;
+    padding: 13px 0;
+    font: 12px var(--sans);
+    background: transparent;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 17px;
+}
+
+.product-card {
+    border: 1px solid #f0e2c3; /* [DITIMPA] */
+    border-radius: 13px;        /* [DITIMPA] */
+    background: #fffdf9;
+    min-width: 0;
+    box-shadow: 0 8px 22px #4d30100a; /* [DITIMPA] */
+    transition: .2s;
+}
+
+.product-card:hover {
+    box-shadow: 0 15px 28px #4d301018; /* [DITIMPA] */
+    transform: translateY(-3px);
+}
+
+.product-visual {
+    width: 100%;
+    height: 280px; /* [DIPERBAIKI] Sebelumnya tertulis 'height: auto 280px;' yang tidak valid */
+    background: #fff7e5; /* [DITIMPA] */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-visual:before {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 1px solid rgba(111, 66, 37, .22);
+}
+
+.product-visual:after {
+    content: "";
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 1px dashed rgba(111, 66, 37, .28);
+}
+
+.product-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    position: relative;
+    z-index: 2;
+}
+
+.visual-cassava { background: #efe0be; }
+.visual-banana  { background: #f4d99b; }
+.visual-tempe   { background: #d7d9c0; }
+.visual-balado  { background: #e6c0a5; }
+
+.product-tag {
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    z-index: 2;
+    background: #fffaf0;
+    color: var(--red);
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    padding: 5px 7px;
+}
+
+.product-info {
+    padding: 18px 16px 16px;
+}
+
+.product-category {
+    font-family: var(--sans);
+    font-size: 11px;
+    color: #b18424; /* [DITIMPA] */
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.product-info h3 {
+    font-family: var(--serif); /* [DITIMPA] */
+    font-size: 16px;
+    font-weight: 700;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: 1.35;
+    margin: 4px 0 8px;
+    color: #45271e; /* [DITIMPA] */
+}
+
+/* Font khusus harga produk */
+.product-info h3 strong {
+    font-family: 'DM Sans', sans-serif !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    font-style: normal !important;
+    color: #9e1717 !important;
+    letter-spacing: 0.3px;
+    font-variant-numeric: tabular-nums;
+}
+
+.product-info p {
+    font-family: var(--sans);
+    font-size: 12px;
+    color: #3b322a;
+    min-height: 60px;
+    margin-bottom: 16px;
+    line-height: 1.65;
+}
+
+.product-bottom {
+    border-top: 1px dashed var(--line);
+    padding-top: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.product-bottom strong {
+    font-family: var(--serif);
+    font-size: 15px;
+    color: var(--red-dark); /* [DITIMPA] */
+    letter-spacing: 0.02em;
+}
+
+.product-bottom a {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--red); /* [DITIMPA] */
+}
+
+.empty-state {
+    padding: 30px;
+    text-align: center;
+    color: var(--muted);
+    background: var(--cream);
+}
+
+/* ==========================================================================
+   9. HALAMAN LOKASI & KONTAK (LOKASI.HTML)
+   ========================================================================== */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 58px;
+    align-items: center;
+}
+
+.contact-copy > p {
+    font-size: 13px;
+}
+
+.contact-list {
+    margin: 27px 0;
+}
+
+.contact-item {
+    display: flex;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.contact-icon {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    background: #fff2c7; /* [DITIMPA] */
+    color: var(--red);
+    border: 1px solid #efdca9; /* [DITIMPA] */
+    font-size: 21px;
+}
+
+.contact-item strong {
+    font-size: 12px;
+    color: var(--red-dark); /* [DITIMPA] */
+}
+
+.contact-item p {
+    font-size: 12px;
+    margin: 3px 0 0;
+}
+
+.contact-item a {
+    color: var(--red); /* [DITIMPA] */
+    font-weight: 700;
+}
+
+.contact-item em {
+    font-size: 10px;
+    color: #9b6c38;
+}
+
+.map-card {
+    border: 1px solid #efdca9; /* [DITIMPA] */
+    background: #fff;
+    box-shadow: var(--shadow);
+}
+
+.map-illustration {
+    height: 330px;
+    position: relative;
+    overflow: hidden;
+    background-color: #e8e6d6;
+    background-image:
+        linear-gradient(30deg, transparent 47%, #d2d2bd 48%, #d2d2bd 50%, transparent 51%),
+        linear-gradient(120deg, transparent 46%, #d5d4c1 47%, #d5d4c1 49%, transparent 50%);
+    background-size: 85px 75px, 110px 105px;
+}
+
+.map-illustration:before {
+    content: "";
+    position: absolute;
+    width: 120%;
+    height: 32px;
+    top: 45%;
+    left: -10%;
+    background: #fbf5e5;
+    border: 1px solid #d9cfb5;
+    transform: rotate(-23deg);
+}
+
+.map-road {
+    position: absolute;
+    background: #fff9e8;
+    border: 1px solid #d8cfb8;
+}
+
+.road-one   { width: 130%; height: 23px; top: 26%; left: -15%; transform: rotate(28deg); }
+.road-two   { width: 125%; height: 20px; top: 72%; left: -10%; transform: rotate(-33deg); }
+.road-three { width: 20px; height: 130%; left: 65%; top: -15%; transform: rotate(18deg); }
+
+.map-pin {
+    position: absolute;
+    top: 41%;
+    left: 49%;
+    width: 48px;
+    height: 48px;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    background: var(--red);
+    color: #fff;
+    display: grid;
+    place-items: center;
+    font-size: 26px;
+    box-shadow: 0 7px 15px #55231f55;
+}
+
+.map-label {
+    position: absolute;
+    left: calc(49% + 38px);
+    top: 39%;
+    background: #fffdf8;
+    padding: 9px 13px;
+    box-shadow: 0 5px 18px #51472b22;
+    white-space: nowrap;
+}
+
+.map-label strong,
+.map-label span {
+    display: block;
+}
+
+.map-label strong { font-size: 11px; }
+.map-label span   { font-size: 9px; color: var(--muted); }
+
+.map-card-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 20px;
+}
+
+.map-card-foot strong,
+.map-card-foot small {
+    display: block;
+}
+
+.map-card-foot strong { font-size: 12px; }
+.map-card-foot small  { font-size: 10px; color: var(--muted); }
+
+.map-card-foot > a {
+    display: grid;
+    place-items: center;
+    background: var(--red);
+    color: #fff;
+    width: 35px;
+    height: 35px;
+}
+
+.contact-form-wrap {
+    display: grid;
+    grid-template-columns: .8fr 1.2fr;
+    gap: 65px;
+    align-items: start;
+    border-color: #efdca9;
+}
+
+.contact-form-wrap > div > p {
+    font-size: 13px;
+}
+
+.contact-form {
+    display: grid;
+    gap: 8px;
+    border-color: #efdca9;
+}
+
+.contact-form label {
+    font-size: 11px;
+    font-weight: 700;
+    margin-top: 5px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ded1ba;
+    background: #fffdf8;
+    font: 12px var(--sans);
+    color: var(--ink);
+    border-radius: 2px;
+    outline-color: var(--gold);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--gold);
+    outline-color: #f3c51b55;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form .btn {
+    justify-self: start;
+    margin-top: 8px;
+}
+
+.form-feedback {
+    font-size: 11px;
+    color: var(--green);
+    margin: 0;
+}
+
+/* ==========================================================================
+   10. FOOTER & KOMPONEN ADMIN
+   ========================================================================== */
+.site-footer {
+    background: #321d18; /* [DITIMPA] dari #28251f */
+    color: #f6e7c8;
+}
+
+.footer-main {
+    padding: 39px 0 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.brand-light .brand-mark {
+    background: #fff; /* [DITIMPA] */
+    border: 0;
+    outline: 0;
+}
+
+.site-footer .brand-light strong,
+.brand-light strong {
+    color: #f5d78e !important; /* [DITIMPA] */
+}
+
+.site-footer .brand-light small,
+.brand-light small {
+    color: #f6e7c8 !important; /* [DITIMPA] */
+}
+
+.footer-main > p {
+    font-size: 11px;
+    color: #c5b7a1;
+    margin: 0;
+    text-align: right;
+}
+
+.footer-main > p strong {
+    color: #f3d67d; /* [DITIMPA] */
+    font-weight: 500;
+}
+
+.footer-bottom {
+    border-top: 1px solid #67453a; /* [DITIMPA] */
+    padding: 15px 0 18px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    color: #b9ab96;
+    font-size: 10px;
+}
+
+/* Tombol tersembunyi admin di index.html */
+.hidden-admin-trigger {
+    opacity: 0.05;
+    font-size: 12px;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.hidden-admin-trigger:hover {
+    opacity: 1;
+}
+
+/* Tombol kembali di admin/login.html */
+.btn-back-icon {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 20px;
+    color: #555;
+    text-decoration: none;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #f5f5f5;
+    transition: all 0.2s ease;
+}
+
+.btn-back-icon:hover {
+    background-color: #e0e0e0;
+    color: #000;
+}
+
+/* ==========================================================================
+   11. RESPONSIVE MEDIA QUERIES
+   [DITIMPA & DIRAPIKAN] Menggabungkan media query yang duplikat
+   ========================================================================== */
+@media (max-width: 900px) {
+    .nav-links {
+        gap: 18px;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .hero-logo {
+        width: min(100%, 430px);
+        height: auto;
+        object-fit: contain;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .product-grid,
+    .h-products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .h-grid {
+        gap: 20px;
+    }
+
+    .about-grid,
+    .contact-grid,
+    .contact-form-wrap {
+        gap: 35px;
+    }
+}
+
+@media (max-width: 700px) {
+    .container {
+        width: min(100% - 32px, 560px);
+    }
+
+    .topbar-inner {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .topbar-inner span:last-child {
+        display: none;
+    }
+
+    .nav-wrap {
+        min-height: 68px; /* [DITIMPA] */
+    }
+
+    .brand strong {
+        font-size: 15px;
+    }
+
+    .brand small {
+        font-size: 9px;
+    }
+
+    .brand-mark {
+        width: 39px;
+        height: 39px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        padding: 10px 22px 18px;
+        background: #fffdf7; /* [DITIMPA] */
+        border-bottom: 1px solid #eedba9;
+        box-shadow: 0 12px 18px #3d241b12;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 12px 4px;
+        border-bottom: 1px solid #eee4d3;
+    }
+
+    .nav-links a.active:after {
+        bottom: 6px;
+        right: auto;
+        width: 32px;
+    }
+
+    /* Responsif Beranda */
+    .h-hero {
+        padding: 40px 0 48px;
+    }
+
+    .h-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .h-hero h1 {
+        font-size: clamp(39px, 10vw, 54px);
+        margin: 16px 0;
+    }
+
+    .h-lead {
+        font-size: 14px;
+    }
+
+    .h-art {
+        min-height: 0;
+        padding: 8px 15px 25px;
+    }
+
+    .h-logo {
+        width: min(100%, 330px);
+        border-width: 6px;
+    }
+
+    .h-stamp {
+        right: 0;
+        bottom: 10px;
+    }
+
+    .h-strip .container {
+        grid-template-columns: 1fr;
+        gap: 9px;
+        padding: 15px 0;
+    }
+
+    .h-strip div {
+        justify-content: flex-start;
+    }
+
+    .h-section {
+        padding: 54px 0;
+    }
+
+    .h-products {
+        gap: 11px;
+    }
+
+    .h-pbody {
+        padding: 11px;
+    }
+
+    .h-pbody h3 {
+        font-size: 16px;
+    }
+
+    .h-story-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .h-story-img {
+        max-width: 420px;
+        margin: auto;
+    }
+
+    .h-values {
+        gap: 7px;
+    }
+
+    .h-value {
+        padding: 9px;
+    }
+
+    .h-value b {
+        font-size: 13px;
+    }
+
+    .h-quote {
+        padding: 46px 18px;
+    }
+
+    .h-cta {
+        padding: 24px 20px;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    /* Responsif Sub-Halaman */
+    .section {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .section-heading {
+        display: block;
+    }
+
+    .section-heading > p {
+        margin-top: 18px;
+    }
+
+    .value-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-main {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .footer-main > p {
+        text-align: left;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .page-hero {
+        padding: 47px 0 30px;
+    }
+
+    .page-hero:after {
+        right: -35px;
+        font-size: 150px;
+        top: -30px;
+    }
+
+    .about-grid,
+    .contact-grid,
+    .contact-form-wrap {
+        grid-template-columns: 1fr;
+    }
+
+    .about-art {
+        min-height: 300px;
+        background: var(--cream);
+        padding: 18px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--line);
+    }
+
+    .about-art-inner {
+        min-height: 264px;
+    }
+
+    .about-logo {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+        object-fit: contain;
+        display: block;
+        margin: auto;
+    }
+
+    /* Responsif Katalog Produk di HP */
+    .catalog-tools {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .search-box {
+        width: 100%;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .product-visual {
+        width: 100%;
+        aspect-ratio: 3 / 4;
+        height: auto;
+        max-height: none;
+        background: transparent;
+    }
+
+    .product-visual img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .product-image {
+        width: 100%;
+        aspect-ratio: 3 / 4;
+        object-fit: contain;
+        display: block;
+        border-radius: 10px;
+    }
+
+    .product-info {
+        padding: 14px 12px;
+    }
+
+    .product-info h3 {
+        font-size: 16px;
+    }
+
+    .product-info h3 strong {
+        font-size: 16px !important;
+    }
+
+    .product-info p {
+        min-height: unset;
+        font-size: 11px;
+        margin-bottom: 10px;
+    }
+
+    .product-bottom strong {
+        font-size: 11px;
+    }
+
+    .map-illustration {
+        height: 280px;
+    }
+
+    .map-label {
+        left: calc(49% + 27px);
+        white-space: normal;
+        width: 140px;
+    }
+
+    .contact-form-wrap {
+        gap: 25px;
+    }
+}
+
+/* ==========================================================================
+   [DITIMPA] Layar HP Kecil (< 390px): Produk tetap 2 kolom dalam 1 baris
+   ========================================================================== */
+@media (max-width: 390px) {
+    .h-actions {
+        flex-direction: column;
+    }
+
+    .h-btn {
+        width: 100%;
+    }
+
+    .topbar-inner span:last-child {
+        display: none;
+    }
+
+    .h-values {
+        grid-template-columns: 1fr;
+    }
+
+    /* [DITIMPA] Sebelumnya 1fr (1 kolom), kini tetap 2 kolom */
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .product-info {
+        padding: 10px 8px;
+    }
+
+    .product-info h3 {
+        font-size: 13px;
+    }
+
+    .product-info h3 strong {
+        font-size: 14px !important;
+    }
+
+    .product-info p {
+        min-height: 0;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+    }
+}
