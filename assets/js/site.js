@@ -49,7 +49,7 @@
       if (s.teks_footer_2) fp.append(mk("strong", "", s.teks_footer_2));
     }
     if (s.judul_situs && document.title.includes("|")) document.title = document.title.split("|")[0].trim() + " | " + s.judul_situs;
-    const md = $('meta[name="description"]'); if (md && s.deskripsi_situs) md.setAttribute("content", s.deskripsi_situs);
+    const md = $('meta[name="description"]'); if (md && s.deskripsi_situs && $(".h-hero")) md.setAttribute("content", s.deskripsi_situs);   // hanya beranda; halaman lain punya deskripsi sendiri
   }
 
   // ---------- Profil toko: logo, lokasi, kontak ----------
