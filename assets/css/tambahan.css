@@ -76,7 +76,10 @@ html.site-wait #product-grid { visibility: hidden; }
 .form-feedback a { color: var(--red, #8f2f2c); font-weight: 700; }
 
 
-.h-story{overflow-x:clip}
-.h-story .h-story-img{isolation:isolate;width:min(100%,406px);margin-inline:auto}
-.h-story .h-story-img img{display:block}
-.h-story .h-story-img:before{z-index:-1;inset:9px;transform:rotate(-3deg)}
+.h-story { overflow-x: clip; }
+.h-story-img {
+  position: relative; isolation: isolate; box-sizing: border-box;
+  padding: 18px; width: min(100%, 406px); max-width: none; margin: 0 auto; justify-self: center;
+}
+.h-story-img img { position: relative; z-index: 1; display: block; width: 100%; height: auto; margin: 0; transform: rotate(-3deg); }
+.h-story-img:before { z-index: 0; inset: 14px; border-radius: 22px; transform: rotate(-3deg); }
