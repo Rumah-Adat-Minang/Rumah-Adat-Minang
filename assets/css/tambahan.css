@@ -74,3 +74,9 @@ html.site-wait #product-grid { visibility: hidden; }
 .loading-note { text-align: center; color: #896c43; padding: 28px 0; margin: 0; }
 .empty-state { text-align: center; color: #896c43; padding: 28px 12px; }
 .form-feedback a { color: var(--red, #8f2f2c); font-weight: 700; }
+
+
+.h-story{overflow-x:clip}
+.h-story .h-story-img{isolation:isolate;width:min(100%,406px);margin-inline:auto}
+.h-story .h-story-img img{display:block}
+.h-story .h-story-img:before{z-index:-1;inset:9px;transform:rotate(-3deg)}
