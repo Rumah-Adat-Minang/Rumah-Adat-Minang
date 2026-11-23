@@ -9,7 +9,6 @@
   const KEY = String(cfg.SUPABASE_ANON_KEY || "");
   const CONFIGURED = /^https:\/\/[a-z0-9-]+\.supabase\.co$/i.test(BASE) && KEY && !/GANTI/.test(BASE + KEY);
   const state = { wa: null, nama: "Rumah Adat Minang" };
-  window.SiteState = state;   // dibaca keranjang.js (nomor WhatsApp & nama toko dari database)
 
   const $ = (s, r) => (r || document).querySelector(s);
   const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
