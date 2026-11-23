@@ -1,0 +1,85 @@
+/* =====================================================================
+   tambahan.css - dimuat SETELAH style.css. Tidak mengubah style.css.
+   Isi: (1) foto produk/beranda dengan tinggi otomatis, (2) banner promo,
+        (3) filter kategori, (4) keadaan memuat/kosong.
+   ===================================================================== */
+
+/* ---- 0. Sembunyikan konten bawaan sebentar sampai data database siap ---- */
+html.site-wait .h-logo img,
+html.site-wait .h-story-img img,
+html.site-wait .h-products,
+html.site-wait #product-grid { visibility: hidden; }
+
+/* ---- 1. Foto produk: tinggi mengikuti rasio asli (landscape, potret, persegi) ---- */
+.product-card { display: flex; flex-direction: column; overflow: hidden; }
+.product-card .product-visual.has-photo {
+  display: block; width: 100%; height: auto; max-height: none; aspect-ratio: auto;
+  background: transparent; line-height: 0; overflow: hidden;
+}
+.product-card .product-visual.has-photo:before,
+.product-card .product-visual.has-photo:after { display: none; }
+.product-card .product-visual.has-photo img,
+.product-card .product-visual.has-photo .product-image {
+  display: block; width: 100%; height: auto; aspect-ratio: auto;
+  object-fit: contain; border-radius: 0; position: relative;
+}
+/* Produk tanpa foto: kotak penanda dengan rasio tetap */
+.product-card .product-visual:not(.has-photo) { aspect-ratio: 4 / 3; height: auto; min-height: 0; }
+/* Kartu satu baris sama tinggi, harga/tautan rata di bawah */
+.product-card .product-info { flex: 1; display: flex; flex-direction: column; }
+.product-card .product-bottom { margin-top: auto; padding-top: 10px; }
+.product-info p { margin: 6px 0 0; font-size: 13px; line-height: 1.55; color: var(--muted, #715e4b); }
+
+/* ---- 1b. Kartu pilihan di beranda: foto tanpa latar, tinggi otomatis ---- */
+.h-product { display: flex; flex-direction: column; }
+.h-photo { aspect-ratio: auto; padding: 0; background: transparent; line-height: 0; }
+.h-photo img { display: block; width: 100%; height: auto; object-fit: contain; border-radius: 0; }
+.h-pbody { flex: 1; display: flex; flex-direction: column; }
+.h-pbody a { margin-top: auto; padding-top: 12px; align-self: flex-start; }
+
+/* ---- 1c. Gambar utama beranda: bingkai mengikuti rasio gambar ---- */
+.h-logo { aspect-ratio: auto; }
+.h-logo img { display: block; width: 100%; height: auto; max-height: 520px; object-fit: contain; }
+.h-story-img img { display: block; height: auto; }
+
+/* ---- 2. Banner promo (beranda) ---- */
+.promo-wrap { padding: 22px 0; }
+.promo { position: relative; border-radius: 13px; overflow: hidden; border: 1px solid #f0e2c3; background: #fff7e5; box-shadow: 0 8px 22px #4d30100a; }
+.promo-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.promo-track::-webkit-scrollbar { display: none; }
+.promo-slide { position: relative; flex: 0 0 100%; scroll-snap-align: start; display: block; color: inherit; text-decoration: none; aspect-ratio: 3 / 1; background: #fff7e5; }
+.promo-slide img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.promo-text { position: absolute; left: 0; right: 0; bottom: 0; padding: 38px 22px 16px; color: #fff; background: linear-gradient(to top, rgba(40,20,12,.78), rgba(40,20,12,0)); }
+.promo-text strong { display: block; font-size: clamp(16px, 2.4vw, 24px); line-height: 1.25; text-shadow: 0 1px 3px rgba(0,0,0,.4); }
+.promo-text span { display: block; margin-top: 3px; font-size: clamp(12px, 1.5vw, 15px); opacity: .95; }
+.promo-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 38px; height: 38px; border-radius: 50%; border: 0; background: rgba(255,253,247,.9); color: var(--red, #8f2f2c); font-size: 22px; line-height: 1; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,.25); }
+.promo-nav.prev { left: 10px; } .promo-nav.next { right: 10px; }
+.promo-dots { position: absolute; left: 0; right: 0; bottom: 8px; display: flex; justify-content: center; gap: 7px; }
+.promo-dots button { width: 9px; height: 9px; padding: 0; border-radius: 50%; border: 0; background: rgba(255,255,255,.55); cursor: pointer; }
+.promo-dots button[aria-current="true"] { background: #fff; width: 22px; border-radius: 6px; }
+.promo.single .promo-nav, .promo.single .promo-dots { display: none; }
+@media (max-width: 700px) {
+  .promo-slide { aspect-ratio: 16 / 9; }
+  .promo-nav { display: none; }
+  .promo-text { padding: 28px 14px 22px; }
+}
+
+/* ---- 3. Filter kategori (halaman produk) ---- */
+.category-filter { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 20px; }
+.cat-chip { border: 1px solid #e7c86c; background: #fffdf7; color: var(--red-dark, #6f2220); border-radius: 999px; padding: 8px 16px; font: inherit; font-weight: 700; font-size: 13px; cursor: pointer; transition: .15s; }
+.cat-chip:hover { border-color: var(--red, #8f2f2c); }
+.cat-chip[aria-pressed="true"] { background: var(--red, #8f2f2c); border-color: var(--red, #8f2f2c); color: #fff; }
+
+/* ---- 4. Memuat / kosong ---- */
+.loading-note { text-align: center; color: #896c43; padding: 28px 0; margin: 0; }
+.empty-state { text-align: center; color: #896c43; padding: 28px 12px; }
+.form-feedback a { color: var(--red, #8f2f2c); font-weight: 700; }
+
+
+.h-story { overflow-x: clip; }
+.h-story-img {
+  position: relative; isolation: isolate; box-sizing: border-box;
+  padding: 18px; width: min(100%, 406px); max-width: none; margin: 0 auto; justify-self: center;
+}
+.h-story-img img { position: relative; z-index: 1; display: block; width: 100%; height: auto; margin: 0; transform: rotate(-3deg); }
+.h-story-img:before { z-index: 0; inset: 14px; border-radius: 22px; transform: rotate(-3deg); }
